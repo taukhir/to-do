@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 # ToDo
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.1.
@@ -27,10 +25,4 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-=======
-# To-Do
-Projects built for learning purpose
->>>>>>> 502064b72f8ef9022225d802ea82c8d3b00c1ac7
-=======
 
->>>>>>> ff735b29e5f1c4ffd690eeb606ffb7925529f512
