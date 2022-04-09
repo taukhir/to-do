@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {TASKS} from '../../mock-tasks';
+import {Task} from '../../task';
 
 @Component({
   selector: 'app-to-do-list',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./to-do-list.component.scss']
 })
 export class ToDoListComponent implements OnInit {
+
+tasks : Task[] = TASKS;
 
   constructor() { }
 
