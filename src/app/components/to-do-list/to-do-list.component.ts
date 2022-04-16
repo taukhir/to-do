@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {TASKS} from '../../mock-tasks';
-import {Task} from '../../task';
+import { TASKS } from '../../mock-tasks';
+import { Task } from '../../task';
 
 @Component({
   selector: 'app-to-do-list',
@@ -9,11 +9,16 @@ import {Task} from '../../task';
 })
 export class ToDoListComponent implements OnInit {
 
-tasks : Task[] = TASKS;
+  tasks: Task[] = TASKS;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  deleteTodo(todo: Task) {
+    console.log("deleteTodo triggered");
+    this.tasks.splice(this.tasks.indexOf(todo),1);
   }
 
 }
