@@ -11,14 +11,25 @@ export class ToDoListComponent implements OnInit {
 
   tasks: Task[] = TASKS;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
-  deleteTodo(todo: Task) {
+  deleteTodo(todo: Task): void {
     console.log("deleteTodo triggered");
-    this.tasks.splice(this.tasks.indexOf(todo),1);
+    this.tasks.splice(this.tasks.indexOf(todo), 1);
+  }
+
+  addTasks(todo: Task): void {
+    this.tasks.push(todo);
+
+  }
+
+  toggleTask(todo: Task): void {
+    const index = this.tasks.indexOf(todo);
+    this.tasks[index].completed = !this.tasks[index].completed; 
   }
 
 }

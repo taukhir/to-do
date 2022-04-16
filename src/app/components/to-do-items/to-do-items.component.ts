@@ -10,6 +10,7 @@ export class ToDoItemsComponent implements OnInit {
 
   @Input() todo!: Task;
   @Output() todoDelete: EventEmitter<Task> = new EventEmitter();
+  @Output() todoComplete: EventEmitter<Task> = new EventEmitter();
 
   constructor() { }
 
@@ -20,6 +21,11 @@ export class ToDoItemsComponent implements OnInit {
     this.todoDelete.emit(todo);
     console.log("onDelete event");
   } 
+
+  onComplete(todo: Task): void {
+    this.todoComplete.emit(todo);
+    console.log("onComplete event");
+  }
 
 }
 

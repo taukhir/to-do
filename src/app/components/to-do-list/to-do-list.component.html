@@ -2,11 +2,16 @@
     <div class="d-flex row justify-content-md-center">
 
         <div class="col-6">
-            <app-add-todo></app-add-todo><hr>
+            <app-add-todo (addTodo)="addTasks($event)"></app-add-todo>
+            <hr>
             <p class="h3 text-primary">Todo's</p>
-            <div *ngFor="let task of tasks">
-                <app-to-do-items [todo]="task" (todoDelete)="deleteTodo($event)"></app-to-do-items>
-            </div>
+            <div *ngIf="tasks.length===0; else elseBlock">No Todo's to display.</div>
+            <ng-template #elseBlock>
+                <div *ngFor="let task of tasks">
+                    <app-to-do-items [todo]="task" (todoDelete)="deleteTodo($event)"
+                        (todoComplete)="toggleTask($event)"></app-to-do-items>
+                </div>
+            </ng-template>
             <!-- <table class="table table-bordered w-100">
                 <tr *ngFor="let task of tasks" class="d-flex">
                     <app-to-do-items [todo]="task"></app-to-do-items>
