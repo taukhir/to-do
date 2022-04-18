@@ -19,9 +19,20 @@ export class AddTodoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit() {
-    console.log();
-    const todo = {
+  onSubmit(): void {
+
+    // const todo: Task = {
+    //   id: Math.floor(Math.random() * 100) + 1,
+    //   text: this.taskName,
+    //   day: new Date().toISOString().toString(),
+    //   completed: false,
+    //   createDate: new Date().toISOString().toString(),
+    //   updatedDate: new Date().toISOString().toString(),
+    //   comment: this.comment,
+    //   createdBy: 'ahmed'
+    // };
+    this.myForm.resetForm();
+    this.addTodo.emit({
       id: Math.floor(Math.random() * 100) + 1,
       text: this.taskName,
       day: new Date().toISOString().toString(),
@@ -30,9 +41,7 @@ export class AddTodoComponent implements OnInit {
       updatedDate: new Date().toISOString().toString(),
       comment: this.comment,
       createdBy: 'ahmed'
-    };
-    this.myForm.resetForm();
-    this.addTodo.emit(todo);
+    });
   }
 
 }

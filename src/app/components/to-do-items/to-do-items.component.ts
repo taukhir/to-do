@@ -17,10 +17,10 @@ export class ToDoItemsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onDelete(todo: Task) {
+  onDelete(todo: Task): void {
     this.todoDelete.emit(todo);
     console.log("onDelete event");
-  } 
+  }
 
   onComplete(todo: Task): void {
     this.todoComplete.emit(todo);
