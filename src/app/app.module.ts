@@ -9,6 +9,7 @@ import { ToDoItemsComponent } from './components/to-do-items/to-do-items.compone
 import { ToDoListComponent } from './components/to-do-list/to-do-list.component';
 import { AddTodoComponent } from './components/add-todo/add-todo.component';
 import { FormsModule } from '@angular/forms';
+import { ViewToDoComponent } from './components/view-to-do/view-to-do.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     ToDoItemsComponent,
     ToDoListComponent,
-    AddTodoComponent
+    AddTodoComponent,
+    ViewToDoComponent
   ],
   imports: [
     BrowserModule,
