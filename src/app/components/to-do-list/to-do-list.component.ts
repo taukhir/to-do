@@ -9,12 +9,14 @@ import { Task } from '../../task';
 })
 export class ToDoListComponent implements OnInit {
 
-  tasks: Task[] = TASKS;
+  public tasks: Task[] = TASKS;
+  public data :any;
 
   constructor() {
   }
 
   ngOnInit(): void {
+    
   }
 
   deleteTodo(todo: Task): void {
@@ -30,6 +32,10 @@ export class ToDoListComponent implements OnInit {
   toggleTask(todo: Task): void {
     const index = this.tasks.indexOf(todo);
     this.tasks[index].completed = !this.tasks[index].completed; 
+  }
+
+  updateTask(todo: Task) : void {
+    this.tasks[this.tasks.indexOf(todo)] = todo;
   }
 
 }

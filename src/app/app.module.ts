@@ -10,7 +10,8 @@ import { ToDoListComponent } from './components/to-do-list/to-do-list.component'
 import { AddTodoComponent } from './components/add-todo/add-todo.component';
 import { FormsModule } from '@angular/forms';
 import { ViewToDoComponent } from './components/view-to-do/view-to-do.component';
-import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.co
     ToDoListComponent,
     AddTodoComponent,
     ViewToDoComponent,
-    PagenotfoundComponent
+    PageNotFoundComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
