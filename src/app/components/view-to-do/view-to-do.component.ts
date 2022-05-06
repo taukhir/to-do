@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { Task } from '../../task';
+import { TodoService } from '../../services/todo.service'
 @Component({
   selector: 'app-view-to-do',
   templateUrl: './view-to-do.component.html',
@@ -9,9 +10,13 @@ import { Router } from '@angular/router';
 export class ViewToDoComponent implements OnInit {
 
   public data: any;
-  public taskName!: String;
-  public comment!: String;
-  constructor(private router: Router) { }
+  public taskName!: string;
+  public comment!: string;
+  constructor(private router: Router, public todosService: TodoService) { }
+
+  setValue() {
+    console.log('task Name: ', this.taskName);
+  }
 
   ngOnInit(): void {
     this.data = history.state.todo;
@@ -20,10 +25,12 @@ export class ViewToDoComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.data.taskName = this.taskName;
+    this.data.text = this.taskName;
     this.data.comment = this.comment;
+    console.log(`${this.taskName} & ${this.comment}`)
     console.log(JSON.stringify(this.data));
-    this.router.navigate(['/', 'home'], this.data)
+    this.todosService.updateTodo(this.data, this.data.id).subscribe(response => {console.log(response);});
+    this.router.navigate(['/', 'home'])
       .then(nav => {
         console.log(nav); // true if navigation is successful
       }, err => {

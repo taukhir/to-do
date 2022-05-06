@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TASKS } from '../../mock-tasks';
 import { Task } from '../../task';
-
+import { TodoService } from '../../services/todo.service'
 @Component({
   selector: 'app-to-do-list',
   templateUrl: './to-do-list.component.html',
@@ -9,32 +9,46 @@ import { Task } from '../../task';
 })
 export class ToDoListComponent implements OnInit {
 
-  public tasks: Task[] = TASKS;
-  public data :any;
+  public tasks: Task[] = [];
 
-  constructor() {
+  constructor(public todosService: TodoService) {
   }
 
   ngOnInit(): void {
-    
-  }
+    console.log("onInit ")
+    this.todosService.fetchTodos().subscribe(
+      (data: Task[]) => {
+        this.tasks = data;
+        console.log(JSON.stringify(data));
+      }
+    )
+  };
 
   deleteTodo(todo: Task): void {
     console.log("deleteTodo triggered");
+    console.log(JSON.stringify(todo));
+    this.todosService.deleteTodo(todo.id!).subscribe(response => {console.log(response);});
     this.tasks.splice(this.tasks.indexOf(todo), 1);
   }
 
   addTasks(todo: Task): void {
+    console.log("addTasks triggered");
+    this.todosService.addTodo(todo).subscribe(response => {console.log(response);});
     this.tasks.push(todo);
 
   }
 
   toggleTask(todo: Task): void {
+    console.log("toggleTask triggered");
+    todo.completed = !todo.completed;
+    this.todosService.updateTodo(todo,todo.id!).subscribe(response => {console.log(response);});
     const index = this.tasks.indexOf(todo);
-    this.tasks[index].completed = !this.tasks[index].completed; 
+    this.tasks[index].completed = !this.tasks[index].completed;
   }
 
-  updateTask(todo: Task) : void {
+  updateTask(todo: Task): void {
+    console.log("updateTask triggered");
+    this.todosService.updateTodo(todo,todo.id!).subscribe(response => {console.log(response);});
     this.tasks[this.tasks.indexOf(todo)] = todo;
   }
 

@@ -31,7 +31,6 @@ export class AddTodoComponent implements OnInit {
     //   comment: this.comment,
     //   createdBy: 'ahmed'
     // };
-    this.myForm.resetForm();
     this.addTodo.emit({
       id: Math.floor(Math.random() * 100) + 1,
       text: this.taskName,
@@ -42,6 +41,7 @@ export class AddTodoComponent implements OnInit {
       comment: this.comment,
       createdBy: 'ahmed'
     });
+    this.myForm.resetForm();
   }
 
 }

@@ -4,4 +4,10 @@ export class Urls {
 
     public static getTodos = "/todo";
 
+    public static deleteTodo = "/todo";
+
+    public static addTodo = "/todo";
+
+    public static updateTodo = "/todo";
+
 }
