@@ -15,31 +15,25 @@ export class ToDoListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("onInit ")
     this.todosService.fetchTodos().subscribe(
       (data: Task[]) => {
         this.tasks = data;
-        console.log(JSON.stringify(data));
       }
     )
   };
 
   deleteTodo(todo: Task): void {
-    console.log("deleteTodo triggered");
-    console.log(JSON.stringify(todo));
     this.todosService.deleteTodo(todo.id!).subscribe(response => {console.log(response);});
     this.tasks.splice(this.tasks.indexOf(todo), 1);
   }
 
   addTasks(todo: Task): void {
-    console.log("addTasks triggered");
     this.todosService.addTodo(todo).subscribe(response => {console.log(response);});
     this.tasks.push(todo);
 
   }
 
   toggleTask(todo: Task): void {
-    console.log("toggleTask triggered");
     todo.completed = !todo.completed;
     this.todosService.updateTodo(todo,todo.id!).subscribe(response => {console.log(response);});
     const index = this.tasks.indexOf(todo);
@@ -47,7 +41,6 @@ export class ToDoListComponent implements OnInit {
   }
 
   updateTask(todo: Task): void {
-    console.log("updateTask triggered");
     this.todosService.updateTodo(todo,todo.id!).subscribe(response => {console.log(response);});
     this.tasks[this.tasks.indexOf(todo)] = todo;
   }

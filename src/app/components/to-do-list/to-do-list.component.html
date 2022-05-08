@@ -7,10 +7,10 @@
             <p class="h3 text-primary">Todo's</p>
             <div *ngIf="tasks.length===0; else elseBlock">No Todo's to display.</div>
             <ng-template #elseBlock>
-                <div *ngFor="let task of tasks">
+                <ul ui-sortable ng-model="tasks" *ngFor="let task of tasks" class="list-unstyled">
                     <app-to-do-items [todo]="task" (todoDelete)="deleteTodo($event)"
                         (todoComplete)="toggleTask($event)"></app-to-do-items>
-                </div>
+                </ul>
             </ng-template>
             <!-- <table class="table table-bordered w-100">
                 <tr *ngFor="let task of tasks" class="d-flex">

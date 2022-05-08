@@ -14,10 +14,6 @@ export class ViewToDoComponent implements OnInit {
   public comment!: string;
   constructor(private router: Router, public todosService: TodoService) { }
 
-  setValue() {
-    console.log('task Name: ', this.taskName);
-  }
-
   ngOnInit(): void {
     this.data = history.state.todo;
     this.taskName = this.data.text;
@@ -27,8 +23,6 @@ export class ViewToDoComponent implements OnInit {
   onSubmit(): void {
     this.data.text = this.taskName;
     this.data.comment = this.comment;
-    console.log(`${this.taskName} & ${this.comment}`)
-    console.log(JSON.stringify(this.data));
     this.todosService.updateTodo(this.data, this.data.id).subscribe(response => {console.log(response);});
     this.router.navigate(['/', 'home'])
       .then(nav => {

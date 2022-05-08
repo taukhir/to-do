@@ -19,12 +19,10 @@ export class ToDoItemsComponent implements OnInit {
 
   onDelete(todo: Task): void {
     this.todoDelete.emit(todo);
-    console.log("onDelete event");
   }
 
   onComplete(todo: Task): void {
     this.todoComplete.emit(todo);
-    console.log("onComplete event");
   }
 
 }
